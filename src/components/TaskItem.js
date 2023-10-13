@@ -1,10 +1,10 @@
 function TaskItem(props) {
 
     const task = props.task;
-    console.log(props);
+    // console.log(props);
 
     const merkComplete = index => {
-        console.log(index);
+        // console.log(index);
     }
 
     return (
