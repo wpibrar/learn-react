@@ -20,13 +20,17 @@ function App() {
   const [tasks, setTasks] = useState(tasksFromStorage);
 
   const formToggler = action => {
-    console.log(action);
+    if(action === 'open'){
+      get
+    }else{
+
+    }
   }
 
   return (
     <div className="App">
       <TaskList tasks={tasks} />
-      <div className='add-new-task'>
+      <div className='add-new-task' id='add-new-task'>
         <form style={{display: 'none'}}>
           <div className='input-container'>
             <input type="text" name='title' />

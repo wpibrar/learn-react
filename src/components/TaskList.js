@@ -11,7 +11,6 @@ function TaskLlist(props) {
           let index = tasks.indexOf(task);
           return <TaskItem key={index} itemIndex={index} task={task} />;
         }) }
-        
       </ul>
     </div>
   );
