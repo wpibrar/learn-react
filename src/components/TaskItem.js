@@ -1,17 +1,18 @@
 function TaskItem(props) {
 
     const task = props.task;
-    // console.log(props);
+    const taskIndex = props.itemIndex;
 
     const merkComplete = index => {
+        // indexToDel = 
+    }
+
+    const deleteTask = index => {
         // console.log(index);
     }
 
     return (
-        <li>
-            {task.title}
-            <button onClick={() => merkComplete(props.itemIndex)}>Completed</button>
-        </li>
+        <h1>kk</h1>
     );
 }
 

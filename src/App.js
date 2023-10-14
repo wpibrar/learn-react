@@ -50,9 +50,27 @@ function App() {
     setNewTask({status: 0, title:'', dueDate: ''});
   }, [tasks]);
 
+
+  const taskAction = (action, index) => {
+      // console.log(action, index);
+      if(action === 'complete'){
+        setTasks((prevState) => {
+          return [...prevState, newTask];
+        });
+      }else if('uncomplete'){
+        // setTasks((prevState) => {
+        //   return [...prevState, newTask];
+        // });
+      }else{
+        // setTasks((prevState) => {
+        //   return [...prevState, newTask];
+        // });
+      }
+  }
+
   return (
     <div className="App">
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} taskAction={taskAction} />
       <div className='add-new-task' id='add-new-task'>
         <form onSubmit={submitNewTask}>
           <div className='input-container'>
