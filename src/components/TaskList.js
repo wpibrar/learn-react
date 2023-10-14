@@ -4,11 +4,13 @@ function TaskLlist(props) {
 
   const tasks = props.tasks;
 
-  const pendingTasks = tasks.filter((task) =>  task.status === 0);
-  const completedTasks = tasks.filter((task) =>  task.status === 1);
+  const pendingTasks = tasks.filter((task) =>  {
+    return task.status === 0
+  });
 
-  console.log(pendingTasks.length);
-  console.log(completedTasks.length);
+  const completedTasks = tasks.filter((task) => {
+    return task.status === 1
+  });
 
   let pendingTasksContent;
   let completedTasksContent;
@@ -18,15 +20,13 @@ function TaskLlist(props) {
   }else{
     pendingTasksContent = <ul>
     { pendingTasks.map((task, index) => {
-      if( task.status === 0 ){
-        return (
+      return (
         <li key={index}>
-            <button onClick={() => props.taskAction('complete', index)}>Mark Complete</button>
+            <button onClick={() => props.taskAction('complete', task)}>Mark Complete</button>
             {task.title}
-            <button onClick={() => props.taskAction('delete', index)}>Delete</button>
+            <button onClick={() => props.taskAction('delete', task)}>Delete</button>
         </li>
-        );
-      }
+      );
     }) }
   </ul>;
   }
@@ -36,15 +36,13 @@ function TaskLlist(props) {
   }else{
     completedTasksContent = <ul>
     { completedTasks.map((task, index) => {
-      if( task.status === 0 ){
-        return (
-          <li key={index}>
-              <button onClick={() => props.taskAction('uncomplete', index)}>Mark Uncomplete</button>
-              {task.title}
-              <button onClick={() => props.taskAction('delete', index)}>Delete</button>
-          </li>
-        );
-      }
+      return (
+        <li key={index}>
+            <button onClick={() => props.taskAction('uncomplete', task)}>Mark Uncomplete</button>
+            {task.title}
+            <button onClick={() => props.taskAction('delete', task)}>Delete</button>
+        </li>
+      );
     }) }
   </ul>;
   }
